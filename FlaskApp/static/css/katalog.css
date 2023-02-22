@@ -1,0 +1,51 @@
+.first-section {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+  background-color: #5D3891;
+  border-radius: 0px 0px 25px 25px;
+}
+.btn-custom-one{
+  color: #FCFFE7;
+  font-size: 24px;
+}
+.btn-custom-one:hover{
+  background-color: #FCFFE7;
+  color: #5D3891;
+}
+.btn-custom-search{
+  background-color: #5D3891;
+  color: #FCFFE7;
+}
+.btn-custom-search:hover{
+  background-color: #5d3891e3;
+  color: #FCFFE7;
+}
+.second-section{
+  margin: 2% 5%;
+}
+.second-section-one{
+  margin-bottom: 25px;
+}
+.title-page{
+  margin: 0px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #5D3891;
+}
+.second-section-two{
+  flex-wrap: wrap;
+}
+.card-img-top{
+  height: 200px;
+}
+.card-title{
+  font-size: 20px !important;
+  font-weight: bold;
+}
+.card-text{
+  font-size: 16px !important;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
