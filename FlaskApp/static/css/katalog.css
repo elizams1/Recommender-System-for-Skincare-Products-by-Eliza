@@ -5,13 +5,20 @@
   background-color: #5D3891;
   border-radius: 0px 0px 25px 25px;
 }
+.the-link{
+  text-decoration: none;
+}
 .btn-custom-one{
   color: #FCFFE7;
   font-size: 24px;
+  padding: 10px 30px;
+  border-radius: 5px;
 }
 .btn-custom-one:hover{
   background-color: #FCFFE7;
   color: #5D3891;
+  padding: 10px 30px;
+  border-radius: 5px;
 }
 .btn-custom-search{
   background-color: #5D3891;

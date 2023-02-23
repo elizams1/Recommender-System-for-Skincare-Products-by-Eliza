@@ -1,0 +1,17 @@
+.the-one, .the-two{
+  width: 18%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.the-form-rec{
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.the-form-title{
+  margin: 0px;
+}
+.select-margin{
+  margin-left : 20px;
+}

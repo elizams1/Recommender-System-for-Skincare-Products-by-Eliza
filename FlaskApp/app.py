@@ -5,12 +5,16 @@ app = Flask(__name__)
 def main():
   return render_template('katalog.html')
 
+@app.route('/katalog')
+def katalog():
+  return render_template('katalog.html')
+
 @app.route('/rekomendasi')
 def rekomendasi():
   return render_template('rekomendasi.html')
 
 @app.route('/detail')
-def katalog():
+def detail():
   return render_template('detail.html')
 
 if __name__ == '__main__':
