@@ -7,11 +7,24 @@
 .the-form-rec{
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 .the-form-title{
   margin: 0px;
 }
-.select-margin{
-  margin-left : 20px;
+.the-button{
+  display: flex;
+  justify-content: flex-end;
+}
+.the-button-custom{
+  padding: 10px 30px;
+  border-radius: 5px;
+  background-color: #5D3891;
+  color: #FCFFE7;
+}
+.title-page-two {
+  margin-bottom: 25px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #5D3891;
 }
