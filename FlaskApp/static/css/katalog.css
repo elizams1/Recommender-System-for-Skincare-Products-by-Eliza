@@ -10,7 +10,7 @@
 }
 .btn-custom-one{
   color: #FCFFE7;
-  font-size: 24px;
+  font-size: 30px;
   padding: 10px 30px;
   border-radius: 5px;
 }
@@ -20,11 +20,11 @@
   padding: 10px 30px;
   border-radius: 5px;
 }
-.btn-custom-search{
+.btn-custom-search, .btn-custom-detail{
   background-color: #5D3891;
   color: #FCFFE7;
 }
-.btn-custom-search:hover{
+.btn-custom-search:hover,  .btn-custom-detail:hover{
   background-color: #5d3891e3;
   color: #FCFFE7;
 }
@@ -36,7 +36,7 @@
 }
 .title-page{
   margin: 0px;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: bold;
   color: #5D3891;
 }
@@ -58,4 +58,13 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.btn-custom-detail{
+ padding: 5px 15px;
+ text-decoration: none;
+ border-radius: 5px;
+}
+.btn-custom-detail-two{
+  display: flex;
+  justify-content: flex-end;
 }
