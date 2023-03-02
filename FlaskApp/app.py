@@ -1,13 +1,18 @@
 from flask import Flask, render_template
+import pandas as pd
+
+df = pd.read_csv('D:\TA CODING\SISTEM REKOMENDASI - ELIZA\Recommender-System-for-Skincare-Products-by-Eliza\FlaskApp\data\coba.csv')
+
 app = Flask(__name__)
 
 @app.route('/')
 def main():
   return render_template('katalog.html')
 
-@app.route('/katalog')
+@app.route('/katalog', methods=['GET'])
 def katalog():
-  return render_template('katalog.html')
+  df_html = df.values
+  return render_template('katalog.html', data=df_html)
 
 @app.route('/rekomendasi')
 def rekomendasi():

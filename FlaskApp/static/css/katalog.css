@@ -52,6 +52,9 @@
 .card-title{
   font-size: 20px !important;
   font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .card-text{
   font-size: 16px !important;
