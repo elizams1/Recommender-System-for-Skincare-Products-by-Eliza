@@ -1,3 +1,13 @@
+.first-section-two {
+  padding-top: 50px;
+  padding-bottom: 40px;
+  margin-bottom: 25px;
+  background-color: #5D3891;
+  border-radius: 0px 0px 25px 25px;
+}
+.breadcrumb-two{
+  display: flex;
+}
 .the-detail-produk{
   margin-top: 25px;
   display: flex;
