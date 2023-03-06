@@ -10,10 +10,18 @@ def main():
   df_html = df.values
   return render_template('katalog.html', data=df_html)
 
-@app.route('/katalog', methods=['GET'])
+@app.route('/katalog', methods=['POST','GET'])
 def katalog():
   df_html = df.values
-  return render_template('katalog.html', data=df_html)
+  if request.method == 'POST':
+    input = request.form['myInput']
+    data = []
+    for value in df_html:
+      if value[1].lower().find(input.lower()) != -1:
+        data.append(value)
+    return render_template('katalog.html', data=data)
+  else:
+    return render_template('katalog.html', data=df_html)
 
 @app.route('/rekomendasi')
 def rekomendasi():
