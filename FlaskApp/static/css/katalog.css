@@ -71,3 +71,8 @@
   display: flex;
   justify-content: flex-end;
 }
+.button-custom{
+  border: none;
+  background: none;
+  color: inherit;
+}

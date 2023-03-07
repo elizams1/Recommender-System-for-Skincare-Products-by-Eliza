@@ -19,6 +19,8 @@ def katalog():
     for value in df_html:
       if value[1].lower().find(input.lower()) != -1:
         data.append(value)
+      elif value[3].lower().find(input.lower()) != -1:
+        data.append(value)
     return render_template('katalog.html', data=data)
   else:
     return render_template('katalog.html', data=df_html)
