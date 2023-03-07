@@ -38,4 +38,5 @@
 .the-right{
   text-align: justify;
   padding-bottom: 10px;
+  text-transform: capitalize;
 }

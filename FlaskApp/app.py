@@ -5,6 +5,8 @@ df = pd.read_csv('D:\TA CODING\SISTEM REKOMENDASI - ELIZA\Recommender-System-for
 
 app = Flask(__name__)
 
+ITEMS_PER_PAGE = 10
+
 @app.route('/')
 def main():
   df_html = df.values
@@ -13,6 +15,11 @@ def main():
 @app.route('/katalog', methods=['POST','GET'])
 def katalog():
   df_html = df.values
+
+  #PAGINATION 
+
+  
+  #SEARCH FUNCTION
   if request.method == 'POST':
     input = request.form['myInput']
     data = []
@@ -22,6 +29,8 @@ def katalog():
       elif value[3].lower().find(input.lower()) != -1:
         data.append(value)
     return render_template('katalog.html', data=data)
+  
+  #ALL PRODUCT
   else:
     return render_template('katalog.html', data=df_html)
 
