@@ -76,3 +76,12 @@
   background: none;
   color: inherit;
 }
+.page-link{
+  color: #5D3891;
+}
+
+.pagination{
+  --bs-pagination-active-color: #FCFFE7 ;
+  --bs-pagination-active-bg: #5D3891;
+  --bs-pagination-active-border-color: #5D3891;
+}

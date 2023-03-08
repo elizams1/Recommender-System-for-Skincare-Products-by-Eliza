@@ -1,23 +1,37 @@
 from flask import Flask, render_template, request
 import pandas as pd
+from flask_paginate import Pagination, get_page_parameter, get_page_args
+
 
 df = pd.read_csv('D:\TA CODING\SISTEM REKOMENDASI - ELIZA\Recommender-System-for-Skincare-Products-by-Eliza\FlaskApp\data\coba.csv')
 
 app = Flask(__name__)
 
-ITEMS_PER_PAGE = 10
+df_html = df.values
+
+def get_datas(offset=0, per_page=10):
+  return df_html[offset: offset + per_page]
+
+def get_search(data, offset=0, per_page=10):
+  return data[offset: offset + per_page]
 
 @app.route('/')
 def main():
-  df_html = df.values
-  return render_template('katalog.html', data=df_html)
+  #PAGINATION
+  page, per_page, offset = get_page_args(page_parameter='page',                       per_page_parameter='per_page')
+
+  total = len(df_html)
+  products = get_datas(offset=offset, per_page=per_page)
+  pagination = Pagination(page=page, per_page=per_page, total=total, css_framework='bootstrap4')
+
+  return render_template('katalog.html',
+                          products=products,
+                          pagination=pagination,  page=page,
+                          per_page=per_page)
 
 @app.route('/katalog', methods=['POST','GET'])
 def katalog():
-  df_html = df.values
-
-  #PAGINATION 
-
+  page, per_page, offset = get_page_args(page_parameter='page',                       per_page_parameter='per_page')
   
   #SEARCH FUNCTION
   if request.method == 'POST':
@@ -27,12 +41,24 @@ def katalog():
       if value[1].lower().find(input.lower()) != -1:
         data.append(value)
       elif value[3].lower().find(input.lower()) != -1:
-        data.append(value)
-    return render_template('katalog.html', data=data)
+        data.append(value)   
+
+    total = len(data)
+    products = get_search(data, offset=offset, per_page=per_page)
+    pagination = Pagination(page=page, per_page=per_page, total=total, css_framework='bootstrap4') 
+    return render_template('katalog.html', products=products,
+                          pagination=pagination,  page=page,
+                          per_page=per_page)
   
   #ALL PRODUCT
   else:
-    return render_template('katalog.html', data=df_html)
+    total = len(df_html)
+    products = get_datas(offset=offset, per_page=per_page)
+    pagination = Pagination(page=page, per_page=per_page, total=total, css_framework='bootstrap4')
+
+    return render_template('katalog.html', products=products,
+                          pagination=pagination,  page=page,
+                          per_page=per_page)
 
 @app.route('/rekomendasi')
 def rekomendasi():

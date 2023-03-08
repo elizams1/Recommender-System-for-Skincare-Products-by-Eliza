@@ -42,13 +42,9 @@
             </div>
           </div>
         </form>
-        
       </div>
-      <!-- <div id="myCard">
-
-      </div> -->
       <div class="second-section-two d-flex justify-content-center align-items-center gap-5">
-        {% for value in data %}
+        {% for value in products %}
         <div href="detail" name="card" class="card the-link" style="width: 15%;">
           <img class="card-img-top" src="{{ value[8] }}" alt="Card image cap">
           <div class="card-body">
@@ -62,6 +58,26 @@
           </div>
         </div>
         {% endfor %}
+
+        <!-- <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for product in products %}
+              <tr>
+                <td>{{ loop.index + pagination.skip }}</td>
+                <td>{{ product }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div> -->
+        {{ pagination.links }}
       </div>
     </div>
   </div>
