@@ -1,24 +1,28 @@
-from nltk.tokenize import word_tokenize
-import string
-import re
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import TfidfVectorizer
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 from nltk.corpus import stopwords
 from flask import Flask, render_template, request
-import pandas as pd
 from flask_paginate import Pagination, get_page_parameter, get_page_args
 
-from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+import pandas as pd
 import numpy as np
+
+# untuk menggunakan library nltk
+# pip install nltk
 import nltk
+import string
+import re
+from nltk.tokenize import word_tokenize
 # Mendownload package untuk menghapus tanda baca
 nltk.download('punkt')
-
-# import reguler expression
-# import string
-
-# impor word_tokenize dari modul nltk
 nltk.download('stopwords')
+
+# untuk menggunakan library Sastrawi
+# pip install PySastrawi
+
+# untuk menggunakan library sklearn
+# pip install -U scikit-learn
 
 df_product = pd.read_csv(
     'D:\TA CODING\SISTEM REKOMENDASI - ELIZA\Recommender-System-for-Skincare-Products-by-Eliza\FlaskApp\data\DataProduk3.csv')
@@ -31,15 +35,18 @@ df_dataset = pd.read_csv(
 
 app = Flask(__name__)
 
+# mengambil value dari dataframe df_product
 df_html = df_product.values
 
+# mengambil value dari dataframe df_user
 df_user_value = df_user.values
 
 
+# mendapatkan 10 data per halaman
 def get_datas(offset=0, per_page=10):
     return df_html[offset: offset + per_page]
 
-
+# mencari 10 data per halaman
 def get_search(data, offset=0, per_page=10):
     return data[offset: offset + per_page]
 
@@ -82,7 +89,6 @@ def get_recommendations_product2(user_input):
     tokens_query = [str(tok) for tok in nltk.word_tokenize(user_input)]
 
     # FILTERING
-
     # Data tanpa stopword
     tokens_query = [word for word in tokens_query if not word in data_stopword]
 
@@ -138,7 +144,8 @@ def get_recommendations_product2(user_input):
 def main():
     # PAGINATION
     page, per_page, offset = get_page_args(
-        page_parameter='page',                       per_page_parameter='per_page')
+        page_parameter='page',
+        per_page_parameter='per_page')
 
     total = len(df_html)
     products = get_datas(offset=offset, per_page=per_page)
@@ -154,7 +161,8 @@ def main():
 @app.route('/katalog', methods=['POST', 'GET'])
 def katalog():
     page, per_page, offset = get_page_args(
-        page_parameter='page',                       per_page_parameter='per_page')
+        page_parameter='page',
+        per_page_parameter='per_page')
 
     # SEARCH FUNCTION
     if request.method == 'POST':
@@ -195,17 +203,18 @@ def rekomendasi():
         type_skin = request.form.get('inputTypeSkin')
         problem_skin = request.form.get('inputProblemSkin')
 
-        data_input_user = "" 
+        data_input_user = ""
         for i in range(0, len(df_user_value)):
-          if df_user_value[i][0] == type_product and df_user_value[i][1] == type_skin and df_user_value[i][2] == problem_skin :
-            print(df_user_value[i][0] + " " + df_user_value[i][1] +
-                  " " + df_user_value[i][2] + " " + df_user_value[i][3])
-            data_input_user = df_user_value[i][0]+ " " + df_user_value[i][1] + " " + df_user_value[i][2] + " " + df_user_value[i][3]
+            if df_user_value[i][0] == type_product and df_user_value[i][1] == type_skin and df_user_value[i][2] == problem_skin:
+                print(df_user_value[i][0] + " " + df_user_value[i][1] +
+                      " " + df_user_value[i][2] + " " + df_user_value[i][3])
+                data_input_user = df_user_value[i][0] + " " + df_user_value[i][1] + \
+                    " " + df_user_value[i][2] + " " + df_user_value[i][3]
 
         if data_input_user == "":
             the_output = "Isi form diatas untuk mendapatkan rekomendasi produk skincare"
             return render_template('rekomendasi.html', data2=the_output)
-        
+
         else:
             the_output2 = get_recommendations_product2(data_input_user)
 
@@ -220,8 +229,8 @@ def rekomendasi():
 
     # REKOMENDASI START
     else:
-      the_output = "Isi form diatas untuk mendapatkan rekomendasi produk skincare"
-      return render_template('rekomendasi.html', data2=the_output)
+        the_output = "Isi form diatas untuk mendapatkan rekomendasi produk skincare"
+        return render_template('rekomendasi.html', data2=the_output)
 
 
 @app.route('/detail/')
