@@ -74,12 +74,28 @@
           </div>
         </form> 
         
-        <div>
+        <div class="the-results">
           <p>{{ data2 }}</p>
-
-          {% for item in data %}
-          <p>{{ item }}</p>
-          {% endfor %}
+          <div class="the-results-2">
+            {% for item in data %}  
+              <div href="detail" name="card" class="card card-custom the-link">
+                <div style="width: 15%">
+                  <img class="card-img-top" src="{{ item[8] }}" alt="Card image cap">
+                </div>
+                
+                <div class="card-body" style="width: 85%">
+                  <h5 class="card-title">{{ item[1] }}</h5>
+                  <p class="card-title-2"> {{ item[2] }}</p>
+                  <p class="card-text">{{ item[6] }}</p>
+                  
+                  <div class="btn-custom-detail-two">
+                    <a href="detail/?id={{ item[0] }}" class="btn-custom-detail">detail</a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          
 
         </div>
       </div>

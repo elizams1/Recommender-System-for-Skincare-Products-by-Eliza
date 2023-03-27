@@ -63,8 +63,7 @@ def get_recommendations_product2(user_input):
     data_stopword = str(indo_stopword) + " " + str(eng_stopword)
 
     # TFIDF
-    vectorizer = TfidfVectorizer(
-        analyzer='word', stop_words=list(data_stopword))
+    vectorizer = TfidfVectorizer(analyzer='word', stop_words=list(data_stopword))
     tfidf_dataset = vectorizer.fit_transform(df_dataset['data'])
 
     # CASE FOLDING
@@ -236,7 +235,7 @@ def rekomendasi():
 @app.route('/detail/')
 def detail():
     Id = request.args.get("id")
-    df_html = df.values
+    df_html = df_product.values
     for i in range(0, len(df_html)):
         num = i+1
         if Id == str(num):

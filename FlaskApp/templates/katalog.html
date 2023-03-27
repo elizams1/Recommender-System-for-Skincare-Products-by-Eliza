@@ -58,48 +58,15 @@
           </div>
         </div>
         {% endfor %}
-
-        <!-- <div class="table-responsive">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Value</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for product in products %}
-              <tr>
-                <td>{{ loop.index + pagination.skip }}</td>
-                <td>{{ product }}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div> -->
+        
+        
+      </div>
+      <div class="d-flex justify-content-center align-items-center" style="margin-top:25px">
         {{ pagination.links }}
       </div>
     </div>
   </div>
-  <!-- <script>
-    function searchResults(){
-      var input, filter, card;
-      input = document.getElementById('myInput');
-      filter = input.value.toUpperCase();
-      card = document.getElementById('myCard');
-      let items = [];
-      var c = {data};
-
-      for(i=0;i<c.length;i++){
-        var a = c[i].value[1];
-        var textValue = a.value.toUpperCase();
-        if(textValue.indexOf(filter)>-1){
-          document.getElementById(card);
-        }
-      }
-
-    }
-  </script> -->
+  
 </body>
 
 </html>

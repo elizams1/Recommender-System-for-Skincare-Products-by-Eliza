@@ -28,3 +28,16 @@
   font-weight: bold;
   color: #5D3891;
 }
+.the-results{
+  margin-top:25px;
+}
+.the-results-2{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+}
+.card-custom{
+  display: flex;
+  flex-direction: row;
+}
