@@ -38,38 +38,49 @@
       </div>
       <div>
         <p>Isi pertanyaan dibawah ini untuk mendapatkan rekomendasi produk Skincare</p>
-        <div class="the-form-rec">
-          <div class="the-one">
-            <p class="the-form-title">Jenis Produk</p>
-            <p class="the-form-title">Jenis Kulit</p>
-            <p class="the-form-title">Permasalahan Kulit</p>
+        <form action="/rekomendasi" method="POST">
+          <div class="the-form-rec">
+            <div class="the-one">
+              <p class="the-form-title">Jenis Produk</p>
+              <p class="the-form-title">Jenis Kulit</p>
+              <p class="the-form-title">Permasalahan Kulit</p>
+            </div>
+            <div class="the-two">
+              <select name="inputTypeProduct" class="form-select-sm" aria-label="Default select example" >
+                <option value="" disabled selected>Jenis Produk</option>
+                <option value="Facial Wash">Facial Wash</option>
+                <option value="Face Toner">Face Toner</option>
+                <option value="Face Serum">Face Serum</option>
+                <option value="Moisturizer">Moisturizer</option>
+                <option value="Sunscreen">Sunscreen</option>
+              </select>
+              <select name="inputTypeSkin" class="form-select-sm" aria-label="Default select example">
+                <option value="" disabled selected>Jenis Kulit</option>
+                <option value="Kering">Kering</option>
+                <option value="Berminyak">Berminyak</option>
+                <option value="Kombinasi">Kombinasi</option>
+                <option value="Normal">Normal</option>
+              </select>
+              <select name="inputProblemSkin" class="form-select-sm" aria-label="Default select example">
+                <option value="" disabled selected>Permasalahan Kulit</option>
+                <option value="Kusam">Kusam</option>
+                <option value="Jerawat">Jerawat</option>
+                <option value="Normal">Normal</option>
+              </select>
+            </div>
           </div>
-          <div class="the-two">
-            <select class="form-select-sm" aria-label="Default select example">
-              <option selected>Jenis Produk</option>
-              <option value="Facial Wash">Facial Wash</option>
-              <option value="Face Toner">Face Toner</option>
-              <option value="Face Serum">Face Serum</option>
-              <option value="Moisturizer">Moisturizer</option>
-              <option value="Sunscreen">Sunscreen</option>
-            </select>
-            <select class="form-select-sm" aria-label="Default select example">
-              <option selected>Jenis Kulit</option>
-              <option value="Kering">Kering</option>
-              <option value="Berminyak">Berminyak</option>
-              <option value="Kombinasi">Kombinasi</option>
-              <option value="Normal">Normal</option>
-            </select>
-            <select class="form-select-sm" aria-label="Default select example">
-              <option selected>Permasalahan Kulit</option>
-              <option value="Kering">Kusam</option>
-              <option value="Berminyak">Berjerawat</option>
-              <option value="Normal">Normal</option>
-            </select>
+          <div class="the-button">
+            <button type="submit" class="the-button-custom">Dapatkan Rekomendasi</button>
           </div>
-        </div>
-        <div class="the-button">
-          <p class="the-button-custom">Dapatkan Rekomendasi</p>
+        </form> 
+        
+        <div>
+          <p>{{ data2 }}</p>
+
+          {% for item in data %}
+          <p>{{ item }}</p>
+          {% endfor %}
+
         </div>
       </div>
     </div>
