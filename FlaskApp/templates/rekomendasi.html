@@ -75,7 +75,10 @@
         </form> 
         
         <div class="the-results">
-          <p>{{ data2 }}</p>
+          <div>
+            <p>Hallo Besti, Min Glowink akan rekomendasiin <b>{{ tP }}</b>  untuk jenis kulit <b> {{ tS }}</b> yang membantu kamu merawat permasalahan kulit <b>{{ pS }}</b> karena produk ini memiliki kandungan <b>{{ iP }}</b>.</p>
+          </div>
+          
           <div class="the-results-2">
             {% for item in data %}  
               <div href="detail" name="card" class="card card-custom the-link">

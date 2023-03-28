@@ -47,6 +47,8 @@ def get_datas(offset=0, per_page=10):
     return df_html[offset: offset + per_page]
 
 # mencari 10 data per halaman
+
+
 def get_search(data, offset=0, per_page=10):
     return data[offset: offset + per_page]
 
@@ -63,7 +65,8 @@ def get_recommendations_product2(user_input):
     data_stopword = str(indo_stopword) + " " + str(eng_stopword)
 
     # TFIDF
-    vectorizer = TfidfVectorizer(analyzer='word', stop_words=list(data_stopword))
+    vectorizer = TfidfVectorizer(
+        analyzer='word', stop_words=list(data_stopword))
     tfidf_dataset = vectorizer.fit_transform(df_dataset['data'])
 
     # CASE FOLDING
@@ -202,13 +205,19 @@ def rekomendasi():
         type_skin = request.form.get('inputTypeSkin')
         problem_skin = request.form.get('inputProblemSkin')
 
+        
+
         data_input_user = ""
+        iP = ""
+
         for i in range(0, len(df_user_value)):
             if df_user_value[i][0] == type_product and df_user_value[i][1] == type_skin and df_user_value[i][2] == problem_skin:
                 print(df_user_value[i][0] + " " + df_user_value[i][1] +
                       " " + df_user_value[i][2] + " " + df_user_value[i][3])
                 data_input_user = df_user_value[i][0] + " " + df_user_value[i][1] + \
                     " " + df_user_value[i][2] + " " + df_user_value[i][3]
+                iP = " " + df_user_value[i][3]
+
 
         if data_input_user == "":
             the_output = "Isi form diatas untuk mendapatkan rekomendasi produk skincare"
@@ -224,7 +233,7 @@ def rekomendasi():
                         data_res.append(value)
 
             the_output = data_input_user + " " + str(the_output2)
-            return render_template('rekomendasi.html', data=data_res, data2=data_input_user)
+            return render_template('rekomendasi.html', data=data_res, data2=data_input_user, tP=type_product, tS=type_skin, pS=problem_skin,iP=iP)
 
     # REKOMENDASI START
     else:
