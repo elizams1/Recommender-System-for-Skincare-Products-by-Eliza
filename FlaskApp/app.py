@@ -205,10 +205,11 @@ def rekomendasi():
         type_skin = request.form.get('inputTypeSkin')
         problem_skin = request.form.get('inputProblemSkin')
 
-        
-
         data_input_user = ""
         iP = ""
+        tP = type_product 
+        tS = type_skin 
+        pS = problem_skin
 
         for i in range(0, len(df_user_value)):
             if df_user_value[i][0] == type_product and df_user_value[i][1] == type_skin and df_user_value[i][2] == problem_skin:
@@ -216,8 +217,10 @@ def rekomendasi():
                       " " + df_user_value[i][2] + " " + df_user_value[i][3])
                 data_input_user = df_user_value[i][0] + " " + df_user_value[i][1] + \
                     " " + df_user_value[i][2] + " " + df_user_value[i][3]
-                iP = " " + df_user_value[i][3]
-
+                if df_user_value[i][1] == 'Normal' and df_user_value[i][2] == 'Normal':
+                    iP = " yang cocok untuk kulit yang normal "
+                else:
+                    iP = " " + df_user_value[i][3]
 
         if data_input_user == "":
             the_output = "Isi form diatas untuk mendapatkan rekomendasi produk skincare"
@@ -229,11 +232,14 @@ def rekomendasi():
             data_res = []
             for value in df_html:
                 for i in the_output2:
-                    if value[0] == i:
+                    if value[0] == i+1:
                         data_res.append(value)
 
             the_output = data_input_user + " " + str(the_output2)
-            return render_template('rekomendasi.html', data=data_res, data2=data_input_user, tP=type_product, tS=type_skin, pS=problem_skin,iP=iP)
+            data2 = "Hallo Besti, Min Glowink akan rekomendasiin " + \
+                str(tP) + " untuk jenis kulit " + str(tS) + \
+                " yang membantu kamu merawat permasalahan kulit "+ pS +  " karena produk ini memiliki kandungan " + iP
+            return render_template('rekomendasi.html', data=data_res, data2=data2)
 
     # REKOMENDASI START
     else:
