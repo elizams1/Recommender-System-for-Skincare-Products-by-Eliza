@@ -79,10 +79,10 @@
           <div>
             <p>{{ data2 }}</p>
           </div>
-          
           <div class="the-results-2">
-            {% for item in data %}  
+            {% for item in data %} 
               <div href="detail" name="card" class="card card-custom the-link">
+                <!-- <p>{{ item[0]-1 }}</p> -->
                 <div style="width: 15%">
                   <img class="card-img-top" src="{{ item[8] }}" alt="Card image cap">
                 </div>
@@ -99,8 +99,6 @@
               </div>
             {% endfor %}
           </div>
-          
-
         </div>
       </div>
     </div>
