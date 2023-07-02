@@ -8,6 +8,7 @@ from flask_paginate import Pagination, get_page_parameter, get_page_args
 import pandas as pd
 import numpy as np
 
+
 # untuk menggunakan library nltk
 # pip install nltk
 import nltk
@@ -25,13 +26,13 @@ nltk.download('stopwords')
 # pip install -U scikit-learn
 
 df_product = pd.read_csv(
-    'D:\TA CODING\SISTEM REKOMENDASI - ELIZA\Recommender-System-for-Skincare-Products-by-Eliza\FlaskApp\data\DataProdukVers5.csv')
+    './../FlaskApp/data/DataProdukVers5.csv')
 
 df_user = pd.read_csv(
-    'D:\TA CODING\SISTEM REKOMENDASI - ELIZA\Recommender-System-for-Skincare-Products-by-Eliza\FlaskApp\data\DataPengguna4.csv')
+    './../FlaskApp/data/DataPengguna4.csv')
 
 df_dataset = pd.read_excel(
-    'D:\TA CODING\SISTEM REKOMENDASI - ELIZA\Recommender-System-for-Skincare-Products-by-Eliza\FlaskApp\data\Dataset Digabungkan.xlsx')
+    './../FlaskApp/data/Dataset Digabungkan.xlsx')
 
 app = Flask(__name__)
 
