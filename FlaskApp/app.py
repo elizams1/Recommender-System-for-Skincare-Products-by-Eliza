@@ -26,13 +26,13 @@ nltk.download('stopwords')
 # pip install -U scikit-learn
 
 df_product = pd.read_csv(
-    './../FlaskApp/data/DataProdukVers5.csv')
+    './../FlaskApp/static/data/DataProdukVers5.csv')
 
 df_user = pd.read_csv(
-    './../FlaskApp/data/DataPengguna4.csv')
+    './../FlaskApp/static/data/DataPengguna4.csv')
 
 df_dataset = pd.read_excel(
-    './../FlaskApp/data/Dataset Digabungkan.xlsx')
+    './../FlaskApp/static/data/Dataset Digabungkan.xlsx')
 
 app = Flask(__name__)
 
@@ -45,14 +45,10 @@ df_html = df_product.values
 df_user_value = df_user.values
 
 # mendapatkan 10 data per halaman
-
-
 def get_datas(offset=0, per_page=10):
     return df_html[offset: offset + per_page]
 
 # mencari 10 data per halaman
-
-
 def get_search(data, offset=0, per_page=10):
     return data[offset: offset + per_page]
 
