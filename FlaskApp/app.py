@@ -26,13 +26,13 @@ nltk.download('stopwords')
 # pip install -U scikit-learn
 
 df_product = pd.read_csv(
-    './../FlaskApp/static/data/DataProdukVers5.csv')
+    './static/data/DataProdukVers5.csv')
 
 df_user = pd.read_csv(
-    './../FlaskApp/static/data/DataPengguna4.csv')
+    './static/data/DataPengguna4.csv')
 
 df_dataset = pd.read_excel(
-    './../FlaskApp/static/data/Dataset Digabungkan.xlsx')
+    './/static/data/Dataset Digabungkan.xlsx')
 
 app = Flask(__name__)
 
