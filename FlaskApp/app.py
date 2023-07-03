@@ -32,7 +32,7 @@ df_user = pd.read_csv(
     './static/data/DataPengguna4.csv')
 
 df_dataset = pd.read_excel(
-    './/static/data/Dataset Digabungkan.xlsx')
+    './static/data/Dataset Digabungkan.xlsx')
 
 app = Flask(__name__)
 
