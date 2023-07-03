@@ -2,13 +2,13 @@
 "version": 2,
 "builds": [
     {
-        "src": "FlaskApp/coba.py",
+        "src": "./coba.py",
         "use": "@vercel/python"
     }
 ],
 "routes": [
     {
         "src": "(.*)",
-        "dest": "FlaskApp/coba.py"
+        "dest": "./coba.py"
     }
 ]}
