@@ -260,12 +260,12 @@ def rekomendasi():
             tfidf_dataset1 = vectorizer.fit_transform(th_idx['data'])
             index, top5 = get_recommendations_product_two(tfidf_dataset1)
             print(index)
-
+            
             data_res = []
-            for value in the_product:
-                for i in index:
-                    if value[0] == i+1:
-                        data_res.append(value)
+            for i in index:
+                for j in range(0,len(the_product)):
+                    if i == j:
+                        data_res.append(the_product[j])
 
             the_output = data_input_user + " " + str(the_output2)
             print(the_output)
